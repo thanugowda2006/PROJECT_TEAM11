@@ -446,6 +446,10 @@ button.submit:hover {
       applyFilters();
     });
     document.getElementById("searchMenu").addEventListener("input", applyFilters);
+    function applyFilters() {
+      const query = document.getElementById("searchMenu").value.trim().toLowerCase();
+      let filtered = menuItems.filter(d => currentCat === "all" || d.category === currentCat);
+      if (query) filtered = filtered.filter(d => d.name.toLowerCase().includes(query));
+      renderMenu(filtered);
+    }
 
-
-   
