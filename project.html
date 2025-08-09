@@ -464,4 +464,10 @@ themeToggle.setAttribute("aria-pressed", mode === "dark");
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     applyTheme(saved);
     themeToggle.onclick = () => applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
+// Form Validations
+    function setupForm(formId, fields, confirmPair = null) {
+      const form = document.getElementById(formId);
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        let valid = true;
 
