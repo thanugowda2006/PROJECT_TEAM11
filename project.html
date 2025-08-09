@@ -315,8 +315,14 @@ button.submit:hover {
       </div>
       <div class="menu-grid" id="menuGrid"></div>
     </section>
-<!-- Sign-Up & Contact Forms -->
+    <!-- Sign-Up & Contact Forms -->
     <section id="signup-contact">
       <!-- Sign-Up -->
       <form id="signupForm" aria-labelledby="signup-legend" novalidate>
+          <fieldset>
+          <legend id="signup-legend">Sign Up</legend>
+          <label for="suName">Name*</label>
+          <input type="text" id="suName" required autocomplete="name" />
+          <div class="error" id="err-suName"></div>
+          
 
