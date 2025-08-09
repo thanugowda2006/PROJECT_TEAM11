@@ -479,4 +479,11 @@ themeToggle.setAttribute("aria-pressed", mode === "dark");
             valid = false;
           }
         });
-        
+
+        fields.forEach(id => {
+         rr = document.getElementById("err-" + confirmPair[1]);
+          if (pw.value !== cpw.value) {
+            err.textContent = "Passwords do not match";
+            valid = false;
+          }
+             
