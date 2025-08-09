@@ -470,4 +470,13 @@ themeToggle.setAttribute("aria-pressed", mode === "dark");
       form.addEventListener("submit", e => {
         e.preventDefault();
         let valid = true;
-
+        fields.forEach(id => {
+          const inp = document.getElementById(id);
+          const err = document.getElementById("err-" + id);
+          err.textContent = "";
+          if (!inp.checkValidity()) {
+            err.textContent = "Required";
+            valid = false;
+          }
+        });
+        
