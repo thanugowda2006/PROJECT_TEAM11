@@ -427,4 +427,13 @@ button.submit:hover {
         <div class="dish-card" data-cat="${d.category}">
           <img src="${d.img}?w=400" alt="${d.name}">
           <div class="dish-info">
+          <h3>${d.name}</h3>
+            <p>${d.desc}</p>
+            <div class="price">₹ ${d.price}</div>
+          </div>
+        </div>
+      `).join("");
+    }
+    renderMenu(menuItems);
+
 
