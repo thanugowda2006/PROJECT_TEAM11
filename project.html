@@ -435,5 +435,10 @@ button.submit:hover {
       `).join("");
     }
     renderMenu(menuItems);
+   // Filter & Search
+    const controls = document.querySelector(".menu-controls");
+    let currentCat = "all";
+    controls.addEventListener("click", e => {
+      if (e.target.tagName !== "BUTTON") return;
 
-
+   
