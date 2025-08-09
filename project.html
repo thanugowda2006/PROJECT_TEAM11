@@ -440,5 +440,12 @@ button.submit:hover {
     let currentCat = "all";
     controls.addEventListener("click", e => {
       if (e.target.tagName !== "BUTTON") return;
+      controls.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
+      currentCat = e.target.dataset.cat;
+      applyFilters();
+    });
+    document.getElementById("searchMenu").addEventListener("input", applyFilters);
+
 
    
