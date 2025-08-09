@@ -486,4 +486,11 @@ themeToggle.setAttribute("aria-pressed", mode === "dark");
             err.textContent = "Passwords do not match";
             valid = false;
           }
-             
+             }
+        if (valid) {
+          alert((formId === "signupForm" ? "Account created (demo)" : "Message sent (demo)"));
+          form.reset();
+        }
+      });
+    }
+    
