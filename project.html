@@ -421,4 +421,10 @@ button.submit:hover {
       },
       // Add more dishes up to ~16 for length
     ];
+    const grid = document.getElementById("menuGrid");
+    function renderMenu(items) {
+      grid.innerHTML = items.map(d => `
+        <div class="dish-card" data-cat="${d.category}">
+          <img src="${d.img}?w=400" alt="${d.name}">
+          <div class="dish-info">
 
