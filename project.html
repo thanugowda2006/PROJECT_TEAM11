@@ -91,6 +91,13 @@ a {
       border-radius: 4px;
     }
 
+.hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
 
     nav a:hover {
       background: rgba(255, 255, 255, 0.2);
@@ -103,6 +110,15 @@ a {
       background: none;
       border: 1px solid white;
       color: white;
+
+.menu-controls button {
+      background: var(--accent);
+      color: white;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+
       border-radius: 4px;
       padding: 0.3rem 0.8rem;
     }
@@ -144,6 +160,7 @@ a {
       flex-wrap: wrap;
       margin-bottom: var(--page-padding);
       gap: 6px;
+
     }
      .menu-controls input[type="search"] {
       flex: 1;
@@ -298,5 +315,230 @@ button.submit:hover {
   <main class="insite">
     <!-- Hero with splash image -->
     <div class="hero">
+   <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468"
+        alt="Delicious Indian dishes served on a table with curry and rice">
+      <h1>Welcome to Foodie Hub</h1>
+    </div>
+<!-- Menu Section -->
+    <section id="menu-section">
+      <h2>Our Menu</h2>
+      <div class="menu-controls" role="search">
+        <input type="search" id="searchMenu" placeholder="Search dishes..." />
+        <button data-cat="all" class="active">All</button>
+        <button data-cat="starters">Starters</button>
+        <button data-cat="mains">Mains</button>
+        <button data-cat="desserts">Desserts</button>
+        <button data-cat="drinks">Drinks</button>
+      </div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+    <!-- Sign-Up & Contact Forms -->
+    <section id="signup-contact">
+      <!-- Sign-Up -->
+      <form id="signupForm" aria-labelledby="signup-legend" novalidate>
+          <fieldset>
+          <legend id="signup-legend">Sign Up</legend>
+          <label for="suName">Name*</label>
+          <input type="text" id="suName" required autocomplete="name" />
+          <div class="error" id="err-suName"></div>
+           <label for="suEmail">Email*</label>
+          <input type="email" id="suEmail" required autocomplete="email" />
+          <div class="error" id="err-suEmail"></div>
 
-  
+          <label for="suPassword">Password*</label>
+          <input type="password" id="suPassword" minlength="6" required />
+          <div class="error" id="err-suPassword"></div>
+
+          <label for="suConfirm">Confirm Password*</label>
+          <input type="password" id="suConfirm" required />
+          <div class="error" id="err-suConfirm"></div>
+
+          <button type="submit" class="submit">Create Account</button>
+        </fieldset>
+      </form>
+      <!-- Contact Form -->
+      <form id="contactForm" aria-labelledby="contact-legend" novalidate>
+        <fieldset>
+          <legend id="contact-legend">Contact Us</legend>
+          <label for="cuName">Name*</label>
+          <input type="text" id="cuName" required />
+          <div class="error" id="err-cuName"></div>
+          <label for="cuEmail">Email*</label>
+          <input type="email" id="cuEmail" required />
+          <div class="error" id="err-cuEmail"></div>
+
+          <label for="cuMsg">Message*</label>
+          <textarea id="cuMsg" required></textarea>
+          <div class="error" id="err-cuMsg"></div>
+          <button type="submit" class="submit">Send Message</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <footer>&copy; 2025 Foodie Hub — Vijayapura, Karnataka, India</footer>
+  </main>
+
+<script>
+    // Menu data with real Unsplash photos
+    const menuItems = [
+      {
+        name: "Masala Dosa",
+        category: "starters",
+        price: 150,
+        img: "https://images.unsplash.com/photo-1557761575-05836fd11cb4",
+        desc: "Crispy rice crepe with spiced potato."
+      },
+      {
+        name: "Paneer Tikka",
+        category: "starters",
+
+        price: 170,
+
+        price: 300,
+        img: "https://images.unsplash.com/photo-1528722828812-1ddf5e13a197",
+        desc: "Char-grilled cottage cheese cubes."
+      },
+      {
+        name: "Dal Makhani",
+        category: "mains",
+        price: 160,
+        img: "https://images.unsplash.com/photo-1584270354949-d74e8d2f3ef1",
+        desc: "Slow-cooked buttery lentils."
+      },
+      {
+        name: "Butter Paneer Masala",
+        category: "mains",
+        price: 200,
+        img: "https://images.unsplash.com/photo-1591019355060-10cb1ef24d60",
+        desc: "Creamy tomato paneer curry."
+      },
+      {
+        name: "Gulab Jamun",
+        category: "desserts",
+        price: 80,
+        img: "https://images.unsplash.com/photo-1586782211192-6a4ceb9e6dfa",
+        desc: "Soft milk dumplings in rose syrup."
+      },
+            {
+        name: "Kulfi",
+        category: "desserts",
+        price: 90,
+        img: "https://images.unsplash.com/photo-1571070361974-9c1da329b595",
+        desc: "Traditional Indian ice cream."
+      },
+      {
+        name: "Masala Chai",
+        category: "drinks",
+        price: 50,
+        img: "https://images.unsplash.com/photo-1578926375746-1b46ac0a4a8a",
+        desc: "Spiced tea with milk."
+      },
+       {
+        name: "Sweet Lassi",
+        category: "drinks",
+        price: 70,
+        desc: "Creamy yogurt-based drink."
+      },
+      // Add more dishes up to ~16 for length
+    ];
+    const grid = document.getElementById("menuGrid");
+    function renderMenu(items) {
+      grid.innerHTML = items.map(d => `
+        <div class="dish-card" data-cat="${d.category}">
+          <img src="${d.img}?w=400" alt="${d.name}">
+          <div class="dish-info">
+          <h3>${d.name}</h3>
+            <p>${d.desc}</p>
+            <div class="price">₹ ${d.price}</div>
+          </div>
+        </div>
+      `).join("");
+    }
+    renderMenu(menuItems);
+   // Filter & Search
+    const controls = document.querySelector(".menu-controls");
+    let currentCat = "all";
+    controls.addEventListener("click", e => {
+      if (e.target.tagName !== "BUTTON") return;
+      controls.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
+      currentCat = e.target.dataset.cat;
+      applyFilters();
+    });
+    document.getElementById("searchMenu").addEventListener("input", applyFilters);
+    function applyFilters() {
+      const query = document.getElementById("searchMenu").value.trim().toLowerCase();
+      let filtered = menuItems.filter(d => currentCat === "all" || d.category === currentCat);
+      if (query) filtered = filtered.filter(d => d.name.toLowerCase().includes(query));
+      renderMenu(filtered);
+    }
+// Theme Toggle (Light/Dark)
+    const themeToggle = document.getElementById("themeToggle");
+    function applyTheme(mode) {
+      document.body.classList.toggle("dark", mode === "dark");
+themeToggle.setAttribute("aria-pressed", mode === "dark");
+      themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
+      localStorage.setItem("theme", mode);
+    }
+    let saved = localStorage.getItem("theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    applyTheme(saved);
+    themeToggle.onclick = () => applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
+// Form Validations
+    function setupForm(formId, fields, confirmPair = null) {
+      const form = document.getElementById(formId);
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        let valid = true;
+        fields.forEach(id => {
+          const inp = document.getElementById(id);
+          const err = document.getElementById("err-" + id);
+          err.textContent = "";
+          if (!inp.checkValidity()) {
+            err.textContent = "Required";
+            valid = false;
+          }
+        });
+
+        fields.forEach(id => {
+         rr = document.getElementById("err-" + confirmPair[1]);
+          if (pw.value !== cpw.value) {
+            err.textContent = "Passwords do not match";
+            valid = false;
+          }
+             }
+        if (valid) {
+          alert((formId === "signupForm" ? "Account created (demo)" : "Message sent (demo)"));
+          form.reset();
+        }
+      });
+    }
+    setupForm("signupForm", ["suName", "suEmail", "suPassword", "suConfirm"], ["suPassword", "suConfirm"]);
+    setupForm("contactForm", ["cuName", "cuEmail", "cuMsg"]);
+  </script>
+</body>
+
+</html>
+
+.dish-card {
+      width: var(--card-width);
+      height: var(--card-height);
+      border: 1px solid #ddd;
+      border-radius: 10`px;
+      overflow: hidden;
+      background: blue;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+.menu-controls button.active,
+    .menu-controls button:hover {
+      background: var(--btn-hover);
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--page-padding);
+    }
+
