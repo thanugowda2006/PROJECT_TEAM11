@@ -4,18 +4,19 @@
   Includes hero banner, Unsplash food photos, accessible forms, and theme toggle.
 -->
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Foodie Hub – Menu · Sign‑Up · Contact</title>
+  <title>Foodie Hub – Menu · Sign‑Up · Contact</title>
   <style>
     /* ---------------- Global Reset & Variables ---------------- */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      }
-      body {
+    }
+    body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
       line-height: 1.5;
       background-color: var(--bg-light);
@@ -38,31 +39,36 @@
       --card-height: 340px;
       --form-width: 360px;
     }
-    
+
     body.dark {
       --text-level-01: #ddd;
       --bg-light: #262626;
       background-color: var(--bg-dark);
       color: var(--text-level-01);
     }
-   img, picture {
+
+    img, picture {
       max-width: 100%;
       display: block;
     }
-     a {
+
+    a {
       text-decoration: none;
       color: var(--primary);
     }
+
     button, input, textarea {
       font-family: inherit;
     }
-    /* ---------------- Frame Styles ---------------- */
+
+  /* ---------------- Frame Styles ---------------- */
     .site {
       max-width: var(--page-width);
       margin: calc(var(--header-height) + var(--page-padding)) auto var(--page-padding);
       padding: 0 var(--page-padding);
     }
-      header {
+
+    header {
       width: var(--page-width);
       height: var(--header-height);
       background: var(--primary);
@@ -70,20 +76,22 @@
       position: fixed;
       top: 0;
       left: 50%;
-      transform: translateX(-60%);
+      transform: translateX(-50%);
       display: flex;
       align-items: center;
       padding: 0 var(--page-padding);
-      z-index: 888;
+      z-index: 999;
     }
-   .logo {
+
+    .logo {
       font-size: 1.6rem;
       font-weight: bold;
     }
-    nav 
-    {
+
+    nav {
       margin-left: auto;
     }
+
     nav a {
       margin-left: var(--page-padding);
       padding: 6px 10px;
@@ -91,49 +99,35 @@
       border-radius: 4px;
     }
 
-.hero img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-
     nav a:hover {
       background: rgba(255, 255, 255, 0.2);
     }
 
- /* ---------------- Theme Toggle ---------------- */
+    /* ---------------- Theme Toggle ---------------- */
     .theme-toggle {
       margin-left: var(--page-padding);
       cursor: pointer;
       background: none;
       border: 1px solid white;
       color: white;
-
-.menu-controls button {
-      background: var(--accent);
-      color: white;
-      padding: 6px 14px;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.9rem;
-
       border-radius: 4px;
       padding: 0.3rem 0.8rem;
     }
-   /* ---------------- Hero Banner ---------------- */
+
+    /* ---------------- Hero Banner ---------------- */
     .hero {
       width: 100%;
       margin-bottom: calc(var(--page-padding) * 2);
       text-align: center;
     }
+
     .hero img {
       width: 100%;
       height: 320px;
       object-fit: cover;
       border-radius: 8px;
     }
+
     .hero h1 {
       position: relative;
       top: -220px;
@@ -141,6 +135,7 @@
       font-size: 2.6rem;
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
+
     /* ---------------- Section Headings ---------------- */
     section h2 {
       font-size: 1.8rem;
@@ -149,62 +144,73 @@
       display: inline-block;
       padding-bottom: 4px;
     }
-    
-     /* ---------------- Menu Grid ---------------- */
+
+    /* ---------------- Menu Grid ---------------- */
     #menu-section {
       margin-bottom: calc(var(--page-padding) * 2);
     }
+
     .menu-controls {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: var(--page-padding);
       gap: 6px;
-
     }
-     .menu-controls input[type="search"] {
+
+    .menu-controls input[type="search"] {
       flex: 1;
       max-width: 260px;
-       padding: 6px;
+      padding: 6px;
       border-radius: 4px;
       border: 1px solid #999;
     }
-     .menu-controls button {
+
+    .menu-controls button {
       background: var(--accent);
       color: white;
-      padding: 6px 14.0px;
+      padding: 6px 14px;
       border: none;
-      border-radius: 04px;
-      font-size: 0.90rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
     }
+
     .menu-controls button.active,
     .menu-controls button:hover {
       background: var(--btn-hover);
     }
+
     .menu-grid {
       display: flex;
       flex-wrap: wrap;
       gap: var(--page-padding);
     }
-     .dish-card {
+
+    .dish-card {
       width: var(--card-width);
       height: var(--card-height);
       border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
       display: flex;
       flex-direction: column;
-      transition: transform 0.23s;
-     }
-      body.dark .dish-card {
+      transition: transform 0.2s;
+    }
+
+    body.dark .dish-card {
       background: var(--bg-dark);
     }
+
     .dish-card:hover {
       transform: translateY(-4px);
     }
 
-     .dish-card img {
+    .dish-card img {
       height: 150px;
       object-fit: cover;
     }
+
     .dish-info {
       padding: 12px;
       flex-grow: 1;
@@ -212,52 +218,61 @@
       flex-direction: column;
       justify-content: space-between;
     }
-     .dish-info h3 {
+
+    .dish-info h3 {
       margin-bottom: 6px;
       font-size: 1.2rem;
     }
+
     .dish-info p {
       flex-grow: 1;
       font-size: 0.95rem;
       line-height: 1.3;
       margin-bottom: 8px;
     }
-      .price {
+
+    .price {
       font-size: 1.1rem;
       font-weight: bold;
       color: var(--primary);
     }
+
     /* ---------------- Forms ---------------- */
     #signup-contact {
       display: flex;
       gap: var(--page-padding);
       margin-bottom: calc(var(--page-padding) * 2);
     }
-    form {
+
+    border: 1px solid #ccc;
+      border-radius: 6px;
+      padding:form {
       width: var(--form-width);
       background: white;
-      border-radius: 6px;
-      padding: 1px solid #ccc;
-     
+       var(--page-padding);
     }
+
     body.dark form {
       background: var(--bg-light);
     }
-     form fieldset {
+
+    form fieldset {
       border: none;
       margin-bottom: var(--page-padding);
     }
 
-      form legend {
+    form legend {
       font-size: 1.4rem;
       color: var(--accent);
       margin-bottom: 12px;
     }
+
     label {
       display: block;
       margin-bottom: 4px;
       font-weight: bold;
     }
+
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -269,13 +284,14 @@
       border-radius: 4px;
     }
 
-     textarea { resize: vertical; min-height: 100px; }
+    textarea { resize: vertical; min-height: 100px; }
 
     .error {
       height: 1.2em;
       color: crimson;
       font-size: 0.9rem;
     }
+
     button.submit {
       background: var(--primary);
       color: white;
@@ -286,7 +302,7 @@
       font-size: 1rem;
     }
 
-button.submit:hover {
+    button.submit:hover {
       background: var(--btn-hover);
     }
 
@@ -297,7 +313,7 @@ button.submit:hover {
       color: #555;
       margin-bottom: var(--page-padding);
     }
-</style>
+  </style>
 </head>
 
 <body>
@@ -312,14 +328,15 @@ button.submit:hover {
       aria-label="Toggle dark/light mode">🌙</button>
   </header>
 
-  <main class="insite">
-    <!-- Hero with splash image -->
+  <main class="site">
+    <!-- Hero with Unsplash image -->
     <div class="hero">
-   <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468"
+      <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468"
         alt="Delicious Indian dishes served on a table with curry and rice">
       <h1>Welcome to Foodie Hub</h1>
     </div>
-<!-- Menu Section -->
+
+    <!-- Menu Section -->
     <section id="menu-section">
       <h2>Our Menu</h2>
       <div class="menu-controls" role="search">
@@ -332,16 +349,18 @@ button.submit:hover {
       </div>
       <div class="menu-grid" id="menuGrid"></div>
     </section>
+
     <!-- Sign-Up & Contact Forms -->
     <section id="signup-contact">
       <!-- Sign-Up -->
       <form id="signupForm" aria-labelledby="signup-legend" novalidate>
-          <fieldset>
+        <fieldset>
           <legend id="signup-legend">Sign Up</legend>
           <label for="suName">Name*</label>
           <input type="text" id="suName" required autocomplete="name" />
           <div class="error" id="err-suName"></div>
-           <label for="suEmail">Email*</label>
+
+          <label for="suEmail">Email*</label>
           <input type="email" id="suEmail" required autocomplete="email" />
           <div class="error" id="err-suEmail"></div>
 
@@ -356,6 +375,7 @@ button.submit:hover {
           <button type="submit" class="submit">Create Account</button>
         </fieldset>
       </form>
+
       <!-- Contact Form -->
       <form id="contactForm" aria-labelledby="contact-legend" novalidate>
         <fieldset>
@@ -363,6 +383,7 @@ button.submit:hover {
           <label for="cuName">Name*</label>
           <input type="text" id="cuName" required />
           <div class="error" id="err-cuName"></div>
+
           <label for="cuEmail">Email*</label>
           <input type="email" id="cuEmail" required />
           <div class="error" id="err-cuEmail"></div>
@@ -370,6 +391,7 @@ button.submit:hover {
           <label for="cuMsg">Message*</label>
           <textarea id="cuMsg" required></textarea>
           <div class="error" id="err-cuMsg"></div>
+
           <button type="submit" class="submit">Send Message</button>
         </fieldset>
       </form>
@@ -378,23 +400,20 @@ button.submit:hover {
     <footer>&copy; 2025 Foodie Hub — Vijayapura, Karnataka, India</footer>
   </main>
 
-<script>
+  <script>
     // Menu data with real Unsplash photos
     const menuItems = [
       {
         name: "Masala Dosa",
         category: "starters",
-        price: 150,
+        price: 120,
         img: "https://images.unsplash.com/photo-1557761575-05836fd11cb4",
         desc: "Crispy rice crepe with spiced potato."
       },
       {
         name: "Paneer Tikka",
         category: "starters",
-
-        price: 170,
-
-        price: 300,
+        price: 180,
         img: "https://images.unsplash.com/photo-1528722828812-1ddf5e13a197",
         desc: "Char-grilled cottage cheese cubes."
       },
@@ -419,7 +438,7 @@ button.submit:hover {
         img: "https://images.unsplash.com/photo-1586782211192-6a4ceb9e6dfa",
         desc: "Soft milk dumplings in rose syrup."
       },
-            {
+      {
         name: "Kulfi",
         category: "desserts",
         price: 90,
@@ -433,7 +452,7 @@ button.submit:hover {
         img: "https://images.unsplash.com/photo-1578926375746-1b46ac0a4a8a",
         desc: "Spiced tea with milk."
       },
-       {
+      {
         name: "Sweet Lassi",
         category: "drinks",
         price: 70,
@@ -441,13 +460,14 @@ button.submit:hover {
       },
       // Add more dishes up to ~16 for length
     ];
+
     const grid = document.getElementById("menuGrid");
     function renderMenu(items) {
       grid.innerHTML = items.map(d => `
         <div class="dish-card" data-cat="${d.category}">
           <img src="${d.img}?w=400" alt="${d.name}">
           <div class="dish-info">
-          <h3>${d.name}</h3>
+            <h3>${d.name}</h3>
             <p>${d.desc}</p>
             <div class="price">₹ ${d.price}</div>
           </div>
@@ -455,7 +475,8 @@ button.submit:hover {
       `).join("");
     }
     renderMenu(menuItems);
-   // Filter & Search
+
+    // Filter & Search
     const controls = document.querySelector(".menu-controls");
     let currentCat = "all";
     controls.addEventListener("click", e => {
@@ -466,17 +487,19 @@ button.submit:hover {
       applyFilters();
     });
     document.getElementById("searchMenu").addEventListener("input", applyFilters);
+
     function applyFilters() {
       const query = document.getElementById("searchMenu").value.trim().toLowerCase();
       let filtered = menuItems.filter(d => currentCat === "all" || d.category === currentCat);
       if (query) filtered = filtered.filter(d => d.name.toLowerCase().includes(query));
       renderMenu(filtered);
     }
-// Theme Toggle (Light/Dark)
+
+    // Theme Toggle (Light/Dark)
     const themeToggle = document.getElementById("themeToggle");
     function applyTheme(mode) {
       document.body.classList.toggle("dark", mode === "dark");
-themeToggle.setAttribute("aria-pressed", mode === "dark");
+      themeToggle.setAttribute("aria-pressed", mode === "dark");
       themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
       localStorage.setItem("theme", mode);
     }
@@ -484,13 +507,17 @@ themeToggle.setAttribute("aria-pressed", mode === "dark");
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     applyTheme(saved);
     themeToggle.onclick = () => applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
-// Form Validations
+
+    // Form Validations
     function setupForm(formId, fields, confirmPair = null) {
       const form = document.getElementById(formId);
       form.addEventListener("submit", e => {
         e.preventDefault();
         let valid = true;
-        fields.forEach(id => {
+if (confirmPair) {
+          const pw = document.getElementById(confirmPair[0]);
+          const cpw = document.getElementById(confirmPair[1]);
+          const e        fields.forEach(id => {
           const inp = document.getElementById(id);
           const err = document.getElementById("err-" + id);
           err.textContent = "";
@@ -499,14 +526,12 @@ themeToggle.setAttribute("aria-pressed", mode === "dark");
             valid = false;
           }
         });
-
-        fields.forEach(id => {
-         rr = document.getElementById("err-" + confirmPair[1]);
+        rr = document.getElementById("err-" + confirmPair[1]);
           if (pw.value !== cpw.value) {
             err.textContent = "Passwords do not match";
             valid = false;
           }
-             }
+        }
         if (valid) {
           alert((formId === "signupForm" ? "Account created (demo)" : "Message sent (demo)"));
           form.reset();
